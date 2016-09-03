@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Faker.NET4">
       <HintPath>..\Faker.NET4.dll</HintPath>
     </Reference>
@@ -207,26 +211,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608271652168_CriacaoDB.cs" />
-    <Compile Include="Migrations\201608271652168_CriacaoDB.Designer.cs">
-      <DependentUpon>201608271652168_CriacaoDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608271706110_Revisaodeconvencao.cs" />
-    <Compile Include="Migrations\201608271706110_Revisaodeconvencao.Designer.cs">
-      <DependentUpon>201608271706110_Revisaodeconvencao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608271729198_Revisaotamannhodecampo.cs" />
-    <Compile Include="Migrations\201608271729198_Revisaotamannhodecampo.Designer.cs">
-      <DependentUpon>201608271729198_Revisaotamannhodecampo.cs</DependentUpon>
+    <Compile Include="Migrations\201609031408271_Criacao.cs" />
+    <Compile Include="Migrations\201609031408271_Criacao.Designer.cs">
+      <DependentUpon>201609031408271_Criacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PreparaDbcontexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\ViewModels\ClienteviewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -311,6 +307,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Csystems.Aula.Persistencia.Dados.SQLServer\Csystems.Aula02.Persistencia.Dados.SQLServer.csproj">
+      <Project>{2f8fc066-792b-4d7a-b594-72f0ca35d4dc}</Project>
+      <Name>Csystems.Aula02.Persistencia.Dados.SQLServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Csystems.Aula02.Dados\Csystems.Aula02.Dados.csproj">
       <Project>{E73C3208-A7C4-405B-B1CA-07869449E3A4}</Project>
       <Name>Csystems.Aula02.Dados</Name>
@@ -321,18 +321,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608271652168_CriacaoDB.resx">
-      <DependentUpon>201608271652168_CriacaoDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608271706110_Revisaodeconvencao.resx">
-      <DependentUpon>201608271706110_Revisaodeconvencao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608271729198_Revisaotamannhodecampo.resx">
-      <DependentUpon>201608271729198_Revisaotamannhodecampo.cs</DependentUpon>
-    </EmbeddedResource>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <EmbeddedResource Include="Migrations\201609031408271_Criacao.resx">
+      <DependentUpon>201609031408271_Criacao.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,13 +7,13 @@ namespace Csystems.Aula02.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Revisaotamannhodecampo : IMigrationMetadata
+    public sealed partial class Criacao : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Revisaotamannhodecampo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Criacao));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608271729198_Revisaotamannhodecampo"; }
+            get { return "201609031408271_Criacao"; }
         }
         
         string IMigrationMetadata.Source

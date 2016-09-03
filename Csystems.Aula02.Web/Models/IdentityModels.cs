@@ -31,7 +31,7 @@ namespace Csystems.Aula02.Web.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public virtual IDbSet<Cliente> Clientes { get; set; }
+        //public virtual IDbSet<Cliente> Clientes { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

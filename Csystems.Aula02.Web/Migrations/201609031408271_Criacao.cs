@@ -3,26 +3,16 @@ namespace Csystems.Aula02.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriacaoDB : DbMigration
+    public partial class Criacao : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Cliente",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
-                        CPF = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
+                        Id = c.String(nullable: false, maxLength: 150, unicode: false),
+                        Name = c.String(nullable: false, maxLength: 256, unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
@@ -31,8 +21,8 @@ namespace Csystems.Aula02.Web.Migrations
                 "dbo.AspNetUserRoles",
                 c => new
                     {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 150, unicode: false),
+                        RoleId = c.String(nullable: false, maxLength: 150, unicode: false),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
                 .ForeignKey("dbo.AspNetRoles", t => t.RoleId)
@@ -44,20 +34,20 @@ namespace Csystems.Aula02.Web.Migrations
                 "dbo.AspNetUsers",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Empresa = c.String(),
-                        Cnpj = c.String(),
-                        Email = c.String(maxLength: 256),
+                        Id = c.String(nullable: false, maxLength: 150, unicode: false),
+                        Empresa = c.String(maxLength: 150, unicode: false),
+                        Cnpj = c.String(maxLength: 150, unicode: false),
+                        Email = c.String(maxLength: 256, unicode: false),
                         EmailConfirmed = c.Boolean(nullable: false),
-                        PasswordHash = c.String(),
-                        SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
+                        PasswordHash = c.String(maxLength: 150, unicode: false),
+                        SecurityStamp = c.String(maxLength: 150, unicode: false),
+                        PhoneNumber = c.String(maxLength: 150, unicode: false),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(nullable: false, maxLength: 256),
+                        UserName = c.String(nullable: false, maxLength: 256, unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
@@ -67,9 +57,9 @@ namespace Csystems.Aula02.Web.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
+                        UserId = c.String(nullable: false, maxLength: 150, unicode: false),
+                        ClaimType = c.String(maxLength: 150, unicode: false),
+                        ClaimValue = c.String(maxLength: 150, unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
@@ -79,9 +69,9 @@ namespace Csystems.Aula02.Web.Migrations
                 "dbo.AspNetUserLogins",
                 c => new
                     {
-                        LoginProvider = c.String(nullable: false, maxLength: 128),
-                        ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.String(nullable: false, maxLength: 128),
+                        LoginProvider = c.String(nullable: false, maxLength: 150, unicode: false),
+                        ProviderKey = c.String(nullable: false, maxLength: 150, unicode: false),
+                        UserId = c.String(nullable: false, maxLength: 150, unicode: false),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
@@ -106,7 +96,6 @@ namespace Csystems.Aula02.Web.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Cliente");
         }
     }
 }

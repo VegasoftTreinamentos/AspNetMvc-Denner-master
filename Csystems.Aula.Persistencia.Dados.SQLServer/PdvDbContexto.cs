@@ -1,11 +1,7 @@
-﻿using Csystems.Aula02.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Csystems.Aula.Persistencia.Dados.SQLServer.Configuracao;
+using Csystems.Aula02.Dominio.Entidades;
 
 namespace Csystems.Aula.Persistencia.Dados.SQLServer
 {
@@ -13,6 +9,7 @@ namespace Csystems.Aula.Persistencia.Dados.SQLServer
     {
         public virtual IDbSet<Produto> Produtos { get; set; }
         public virtual IDbSet<Categoria> Categorias { get; set; }
+        public virtual IDbSet<Cliente> Clientes { get; set; }
         //public virtual IDbSet<Empresa> Empresas { get; set; }
         public PdvDbContexto()
             : base("DefaultConnection")
@@ -37,6 +34,7 @@ namespace Csystems.Aula.Persistencia.Dados.SQLServer
 
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Configurations.Add(new ClienteConfiguracao());
         }
 
     }

@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using Csystems.Aula.Persistencia.Dados.SQLServer;
 using Csystems.Aula02.Dominio.Entidades;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Csystems.Aula02.Web.Models
 {
-    public class PreparaDbcontexto : DropCreateDatabaseAlways<ApplicationDbContext>
+//    public class PreparaDbcontexto : DropCreateDatabaseAlways<ApplicationDbContext>
+
+
+    public class PreparaDbcontexto : CreateDatabaseIfNotExists<ApplicationDbContext>
     {
-        protected  List<Cliente> clientes = new List<Cliente>();
+    //    protected  List<Cliente> clientes = new List<Cliente>();
+        PdvDbContexto pdv = new PdvDbContexto();
 
 
         protected override void Seed(ApplicationDbContext contexto)
         {
             PopularBaseDados(contexto);
+            PopulaCliente(pdv);
         }
 
         private void PopularBaseDados(ApplicationDbContext contexto)
@@ -46,20 +52,26 @@ namespace Csystems.Aula02.Web.Models
                     userManager.AddToRole(Visitante.Id, "Visitante");
                 }
                 //populaclientes
-                for (int i = 0; i < 1000; i++)
-                {
-                    Cliente cliente = new Cliente();
-                    cliente.Nome = Faker.Name.NomeCompleto();
-                    cliente.CPF = Faker.RandomNumber.Next(10000000).ToString();
-                    
-                    contexto.Clientes.Add(cliente);
-                }
+               
             }
             catch (Exception)
             {
                 
                 throw;
             }
+        }
+
+        private void PopulaCliente(PdvDbContexto contexto)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Cliente cliente = new Cliente();
+                cliente.Nome = Faker.Name.NomeCompleto();
+                cliente.CPF = Faker.RandomNumber.Next(10000000).ToString();
+
+                contexto.Clientes.Add(cliente);
+            }
+            contexto.SaveChanges();
         }
     }
 

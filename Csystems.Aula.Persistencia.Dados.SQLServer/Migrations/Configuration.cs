@@ -1,18 +1,15 @@
+using System.Data.Entity.Migrations;
+
 namespace Csystems.Aula.Persistencia.Dados.SQLServer.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Csystems.Aula.Persistencia.Dados.SQLServer.PdvDbContexto>
+    internal sealed class Configuration : DbMigrationsConfiguration<PdvDbContexto>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Csystems.Aula.Persistencia.Dados.SQLServer.PdvDbContexto context)
+        protected override void Seed(PdvDbContexto context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -1,7 +1,7 @@
 ﻿<ul class="nav navbar-nav">
     <li>@Html.ActionLink("Início", "Index", "Home")</li>
 
-    @if (Request.IsAuthenticated && User.IsInRole("Admin") )
+    @if (Request.IsAuthenticated )//&& User.IsInRole("Admin") )
     {
 
         <li>@Html.ActionLink("Clientes", "Lista", "Clientes")</li>

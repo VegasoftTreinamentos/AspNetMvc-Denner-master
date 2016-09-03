@@ -49,9 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201609020116195_teste.cs" />
-    <Compile Include="Migrations\201609020116195_teste.Designer.cs">
-      <DependentUpon>201609020116195_teste.cs</DependentUpon>
+    <Compile Include="Configuracao\ClienteConfiguracao.cs" />
+    <Compile Include="Migrations\201609031409341_Criacao.cs" />
+    <Compile Include="Migrations\201609031409341_Criacao.Designer.cs">
+      <DependentUpon>201609031409341_Criacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609031417591_CampoNovo.cs" />
+    <Compile Include="Migrations\201609031417591_CampoNovo.Designer.cs">
+      <DependentUpon>201609031417591_CampoNovo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609031801274_Revisãocliente.cs" />
+    <Compile Include="Migrations\201609031801274_Revisãocliente.Designer.cs">
+      <DependentUpon>201609031801274_Revisãocliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PdvDbContexto.cs" />
@@ -68,8 +77,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609020116195_teste.resx">
-      <DependentUpon>201609020116195_teste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609031409341_Criacao.resx">
+      <DependentUpon>201609031409341_Criacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609031417591_CampoNovo.resx">
+      <DependentUpon>201609031417591_CampoNovo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609031801274_Revisãocliente.resx">
+      <DependentUpon>201609031801274_Revisãocliente.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
